@@ -2,10 +2,12 @@
 
 import CardsDemo from "@/components/example/cards";
 import ThemeCustomizer from "@/components/theme-customizer";
+import useThemeStyles from "@/hooks/useThemeStyles";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  useThemeStyles();
 
   useEffect(() => {
     setMounted(true);

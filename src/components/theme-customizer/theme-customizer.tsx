@@ -2,12 +2,13 @@
 
 import React from "react";
 import ColorInput from "./color-input";
+import {
+  PRIMARY_COLOR_PARAM,
+  GRAY_COLOR_PARAM,
+  BACKGROUND_COLOR_PARAM,
+} from "@/lib/constants";
 
 type Props = {};
-
-const PRIMARY_COLOR_PARAM = "primary-color";
-const GRAY_COLOR_PARAM = "gray-color";
-const BACKGROUND_COLOR_PARAM = "background-color";
 
 export default function ThemeCustomizer({}: Props) {
   return (
