@@ -2,7 +2,7 @@
 
 import React from "react";
 import ColorInput from "./color-input";
-import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/lib/constants";
+import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/shadcn-theme-generator/lib/constants";
 
 type Props = {};
 

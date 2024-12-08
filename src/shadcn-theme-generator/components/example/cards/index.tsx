@@ -1,15 +1,15 @@
-import { CardsActivityGoal } from "@/components/example/cards/activity-goal";
-import { CardsCalendar } from "@/components/example/cards/calendar";
-import { CardsChat } from "@/components/example/cards/chat";
-import { CardsCookieSettings } from "@/components/example/cards/cookie-settings";
-import { CardsCreateAccount } from "@/components/example/cards/create-account";
-import { CardsDataTable } from "@/components/example/cards/data-table";
-import { CardsMetric } from "@/components/example/cards/metric";
-import { CardsPaymentMethod } from "@/components/example/cards/payment-method";
-import { CardsReportIssue } from "@/components/example/cards/report-issue";
-import { CardsShare } from "@/components/example/cards/share";
-import { CardsStats } from "@/components/example/cards/stats";
-import { CardsTeamMembers } from "@/components/example/cards/team-members";
+import { CardsActivityGoal } from "@/shadcn-theme-generator/components/example/cards/activity-goal";
+import { CardsCalendar } from "@/shadcn-theme-generator/components/example/cards/calendar";
+import { CardsChat } from "@/shadcn-theme-generator/components/example/cards/chat";
+import { CardsCookieSettings } from "@/shadcn-theme-generator/components/example/cards/cookie-settings";
+import { CardsCreateAccount } from "@/shadcn-theme-generator/components/example/cards/create-account";
+import { CardsDataTable } from "@/shadcn-theme-generator/components/example/cards/data-table";
+import { CardsMetric } from "@/shadcn-theme-generator/components/example/cards/metric";
+import { CardsPaymentMethod } from "@/shadcn-theme-generator/components/example/cards/payment-method";
+import { CardsReportIssue } from "@/shadcn-theme-generator/components/example/cards/report-issue";
+import { CardsShare } from "@/shadcn-theme-generator/components/example/cards/share";
+import { CardsStats } from "@/shadcn-theme-generator/components/example/cards/stats";
+import { CardsTeamMembers } from "@/shadcn-theme-generator/components/example/cards/team-members";
 
 export default function CardsDemo() {
   return (

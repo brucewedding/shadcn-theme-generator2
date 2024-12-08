@@ -4,8 +4,8 @@ import React, { useId, useMemo, useCallback, useRef } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { Colors } from "@/lib/types";
-import { useColorsState } from "@/hooks/useColorsState";
+import { Colors } from "@/shadcn-theme-generator/lib/types";
+import { useColorsState } from "@/shadcn-theme-generator/hooks/useColorsState";
 
 type Props = {
   identifier: keyof Colors;

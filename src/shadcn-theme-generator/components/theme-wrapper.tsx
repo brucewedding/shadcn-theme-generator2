@@ -1,6 +1,6 @@
 "use client";
 
-import useThemeStyles from "@/hooks/useThemeStyles";
+import useThemeStyles from "@/shadcn-theme-generator/hooks/useThemeStyles";
 import { cn } from "@/lib/utils";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {

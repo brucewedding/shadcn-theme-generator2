@@ -1,8 +1,8 @@
 "use client";
 
-import CardsDemo from "@/components/example/cards";
-import ThemeCustomizer from "@/components/theme-customizer";
-import useThemeStyles from "@/hooks/useThemeStyles";
+import CardsDemo from "@/shadcn-theme-generator/components/example/cards";
+import ThemeCustomizer from "@/shadcn-theme-generator/components/theme-customizer";
+import useThemeStyles from "@/shadcn-theme-generator/hooks/useThemeStyles";
 import { useEffect, useState } from "react";
 
 export default function Home() {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./shadcn-theme-generator.css";
-import { ThemeWrapper } from "@/components/theme-wrapper";
+import { ThemeWrapper } from "@/shadcn-theme-generator/components/theme-wrapper";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",

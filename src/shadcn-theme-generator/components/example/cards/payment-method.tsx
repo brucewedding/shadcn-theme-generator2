@@ -1,6 +1,6 @@
 "use client"
 
-import { Icons } from "@/components/icons";
+import { Icons } from "@/shadcn-theme-generator/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   Card,

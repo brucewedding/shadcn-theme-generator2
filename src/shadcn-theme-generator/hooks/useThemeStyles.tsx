@@ -1,8 +1,8 @@
 "use client";
 
-import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/lib/constants";
-import { generateRadixColors } from "@/lib/generate-radix-colors";
-import { createTheme } from "@/lib/helpers";
+import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/shadcn-theme-generator/lib/constants";
+import { generateRadixColors } from "@/shadcn-theme-generator/lib/generate-radix-colors";
+import { createTheme } from "@/shadcn-theme-generator/lib/helpers";
 import { useMemo } from "react";
 import { useColors } from "./useColorsState";
 

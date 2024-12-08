@@ -1,4 +1,4 @@
-import { Colors } from "@/lib/types";
+import { Colors } from "@/shadcn-theme-generator/lib/types";
 import { atomWithStorage, createJSONStorage } from 'jotai/utils';
 
 const storage = createJSONStorage<Colors>(() => localStorage);
