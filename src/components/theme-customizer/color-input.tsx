@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useId, useMemo } from "react";
+import React, { useId, useMemo, useCallback, useRef } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -15,12 +15,38 @@ type Props = {
 export default function ColorInput({ identifier, label }: Props) {
   const id = useId();
   const [colors, setColors] = useColorsState();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const color = useMemo(() => colors[identifier], [colors, identifier]);
 
-  const setColor = (value: string) => {
-    setColors({ ...colors, [identifier]: value });
+  const debouncedSetColor = useCallback(
+    (value: string) => {
+      // Clear any existing timeout
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      // Set new timeout
+      timeoutRef.current = setTimeout(() => {
+        setColors((prevColors) => ({ ...prevColors, [identifier]: value }));
+      }, 100);
+    },
+    [identifier, setColors]
+  );
+
+  const handleColorChange = (value: string) => {
+    const newColor = value.startsWith("#") ? value : `#${value}`;
+    debouncedSetColor(newColor);
   };
+
+  // Cleanup timeout on unmount
+  React.useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="flex flex-col gap-2">
@@ -30,7 +56,7 @@ export default function ColorInput({ identifier, label }: Props) {
           type="text"
           id={`${id}-color-input`}
           value={color.replace("#", "")}
-          onChange={(e) => setColor(`#${e.target.value}`)}
+          onChange={(e) => handleColorChange(`#${e.target.value}`)}
           placeholder="Enter color"
           className="w-full ps-8"
         />
@@ -50,7 +76,7 @@ export default function ColorInput({ identifier, label }: Props) {
               "size-1 cursor-pointer border-none outline-none opacity-0 absolute"
             )}
             value={color}
-            onChange={(e) => setColor(e.target.value)}
+            onChange={(e) => handleColorChange(e.target.value)}
           />
         </div>
       </div>
