@@ -1,39 +1,26 @@
 "use client";
 
-import React, { useEffect, useId, useState } from "react";
+import React, { useId, useMemo } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { Colors } from "@/lib/types";
+import { useColorsState } from "@/hooks/useColorsState";
 
 type Props = {
-  urlParam: string;
+  identifier: keyof Colors;
   label: string;
 };
 
-export default function ColorInput({ urlParam, label }: Props) {
+export default function ColorInput({ identifier, label }: Props) {
   const id = useId();
-  const [mounted, setMounted] = useState(false);
-  const [color, setColorState] = useState("000000");
+  const [colors, setColors] = useColorsState();
 
-  useEffect(() => {
-    setMounted(true);
-    // Get initial color from URL on mount
-    const params = new URLSearchParams(window.location.search);
-    const initialColor = params.get(urlParam)?.replace("#", "") || "000000";
-    setColorState(initialColor);
-  }, [urlParam]);
+  const color = useMemo(() => colors[identifier], [colors, identifier]);
 
   const setColor = (value: string) => {
-    value = value.replace("#", "");
-    setColorState(value);
-
-    // Update URL without navigation
-    const params = new URLSearchParams(window.location.search);
-    params.set(urlParam, value);
-    window.history.replaceState(null, "", `?${params.toString()}`);
+    setColors({ ...colors, [identifier]: value });
   };
-
-  if (!mounted) return null;
 
   return (
     <div className="flex flex-col gap-2">
@@ -42,8 +29,8 @@ export default function ColorInput({ urlParam, label }: Props) {
         <Input
           type="text"
           id={`${id}-color-input`}
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
+          value={color.replace("#", "")}
+          onChange={(e) => setColor(`#${e.target.value}`)}
           placeholder="Enter color"
           className="w-full ps-8"
         />
@@ -52,7 +39,7 @@ export default function ColorInput({ urlParam, label }: Props) {
             htmlFor={`${id}-color-picker`}
             className="size-4 rounded-[2px] block relative border border-gray-200"
             style={{
-              backgroundColor: `#${color}`,
+              backgroundColor: color,
             }}
           />
 
@@ -62,7 +49,7 @@ export default function ColorInput({ urlParam, label }: Props) {
             className={cn(
               "size-1 cursor-pointer border-none outline-none opacity-0 absolute"
             )}
-            value={`#${color}`}
+            value={color}
             onChange={(e) => setColor(e.target.value)}
           />
         </div>

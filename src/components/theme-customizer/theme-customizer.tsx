@@ -2,11 +2,7 @@
 
 import React from "react";
 import ColorInput from "./color-input";
-import {
-  PRIMARY_COLOR_PARAM,
-  GRAY_COLOR_PARAM,
-  BACKGROUND_COLOR_PARAM,
-} from "@/lib/constants";
+import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/lib/constants";
 
 type Props = {};
 
@@ -14,12 +10,9 @@ export default function ThemeCustomizer({}: Props) {
   return (
     <div className="flex items-center justify-center py-6">
       <div className="flex gap-4">
-        <ColorInput urlParam={PRIMARY_COLOR_PARAM} label="Primary Color" />
-        <ColorInput urlParam={GRAY_COLOR_PARAM} label="Gray Color" />
-        <ColorInput
-          urlParam={BACKGROUND_COLOR_PARAM}
-          label="Background Color"
-        />
+        <ColorInput identifier={PRIMARY_COLOR} label="Primary Color" />
+        <ColorInput identifier={GRAY_COLOR} label="Gray Color" />
+        <ColorInput identifier={BACKGROUND_COLOR} label="Background Color" />
       </div>
     </div>
   );

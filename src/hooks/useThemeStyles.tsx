@@ -1,16 +1,29 @@
 "use client";
 
-import {
-  PRIMARY_COLOR_PARAM,
-  GRAY_COLOR_PARAM,
-  BACKGROUND_COLOR_PARAM,
-} from "@/lib/constants";
-import { getColorFromUrl } from "@/lib/helpers";
+import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/lib/constants";
+import { generateRadixColors } from "@/lib/generate-radix-colors";
+import { createTheme } from "@/lib/helpers";
+import { useMemo } from "react";
+import { useColors } from "./useColorsState";
 
 const useThemeStyles = () => {
-  const primaryColor = getColorFromUrl(PRIMARY_COLOR_PARAM);
+  const colorsState = useColors();
 
-  console.log(primaryColor, "primaryColor");
+  const theme = useMemo(() => {
+    const colors = generateRadixColors({
+      appearance: "light",
+      accent: colorsState[PRIMARY_COLOR],
+      gray: colorsState[GRAY_COLOR],
+      background: colorsState[BACKGROUND_COLOR],
+    });
+
+    return createTheme({
+      appearance: "light",
+      ...colors,
+    });
+  }, [colorsState]);
+
+  return theme;
 };
 
 export default useThemeStyles;

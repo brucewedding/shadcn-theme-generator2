@@ -1,3 +1,3 @@
-export const PRIMARY_COLOR_PARAM = "primary-color";
-export const GRAY_COLOR_PARAM = "gray-color";
-export const BACKGROUND_COLOR_PARAM = "background-color";
+export const PRIMARY_COLOR = "light/primary";
+export const GRAY_COLOR = "light/gray";
+export const BACKGROUND_COLOR = "light/background";
