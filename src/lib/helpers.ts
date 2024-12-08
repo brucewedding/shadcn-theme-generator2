@@ -40,11 +40,11 @@ export const createTheme = (colors: any) => {
 
   const theme: ShadcnCssVariables = {
     background: hslToCssValue(hexToHsl(colors.background)),
-    foreground: hslToCssValue(hexToHsl(colors.accentScale[11])),
+    foreground: hslToCssValue(hexToHsl(colors.grayScale[11])),
     card: hslToCssValue(hexToHsl(colors.background)),
-    cardForeground: hslToCssValue(hexToHsl(colors.accentScale[11])),
+    cardForeground: hslToCssValue(hexToHsl(colors.grayScale[11])),
     popover: hslToCssValue(hexToHsl(colors.background)),
-    popoverForeground: hslToCssValue(hexToHsl(colors.accentScale[11])),
+    popoverForeground: hslToCssValue(hexToHsl(colors.grayScale[11])),
     primary: hslToCssValue(hexToHsl(colors.accentScale[8])),
     primaryForeground: hslToCssValue(hexToHsl(colors.accentScale[0])),
     secondary: hslToCssValue(hexToHsl(colors.grayScale[4])),
