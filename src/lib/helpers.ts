@@ -6,7 +6,7 @@ export const hexToHsl = (hex: string) => {
 };
 
 const hslToCssValue = (hsl: string) => {
-  return hsl.replace("hsl(", "").replace(")", "");
+  return hsl.replace("hsl(", "").replace(")", "").replace("none", "0");
 };
 
 export const createTheme = (colors: any) => {
@@ -39,7 +39,23 @@ export const createTheme = (colors: any) => {
   //   --radius: 0.5rem;
 
   const theme: ShadcnCssVariables = {
+    background: hslToCssValue(hexToHsl(colors.background)),
+    foreground: hslToCssValue(hexToHsl(colors.accentScale[11])),
+    card: hslToCssValue(hexToHsl(colors.background)),
+    cardForeground: hslToCssValue(hexToHsl(colors.accentScale[11])),
+    popover: hslToCssValue(hexToHsl(colors.background)),
+    popoverForeground: hslToCssValue(hexToHsl(colors.accentScale[11])),
     primary: hslToCssValue(hexToHsl(colors.accentScale[8])),
+    primaryForeground: hslToCssValue(hexToHsl(colors.accentScale[0])),
+    secondary: hslToCssValue(hexToHsl(colors.grayScale[4])),
+    secondaryForeground: hslToCssValue(hexToHsl(colors.grayScale[11])),
+    muted: hslToCssValue(hexToHsl(colors.grayScale[4])),
+    mutedForeground: hslToCssValue(hexToHsl(colors.grayScale[10])),
+    accent: hslToCssValue(hexToHsl(colors.accentScale[2])),
+    accentForeground: hslToCssValue(hexToHsl(colors.accentScale[11])),
+    input: hslToCssValue(hexToHsl(colors.grayScale[5])),
+    border: hslToCssValue(hexToHsl(colors.grayScale[5])),
+    ring: hslToCssValue(hexToHsl(colors.accentScale[7])),
   };
 
   console.log(theme, "theme");
