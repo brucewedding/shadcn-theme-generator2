@@ -16,11 +16,23 @@ export default function ThemeCustomizer({}: Props) {
   }, [theme]);
 
   return (
-    <div className="flex flex-col items-center justify-center py-6 space-y-6">
-      <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center py-6">
+      <div className="py-8">
+        <div className="text-center font-calSans">
+          <h2 className="text-2xl ">shadcn/ui</h2>
+          <h1 className="text-5xl bg-foreground bg-gradient-to-tl from-primary/80 via-foreground to-foreground bg-clip-text text-transparent">
+            Personalize Your Theme
+          </h1>
+        </div>
+        <p className="font-geist text-sm my-4 text-foreground/50 text-center">
+          Generate your theme and personalize it to your liking.
+        </p>
+      </div>
+
+      <div className="flex items-center justify-center my-6">
         <AppearanceToggle />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 my-6">
         <ColorInput
           identifier={`${appearance}/primary`}
           label="Primary Color"
@@ -31,7 +43,7 @@ export default function ThemeCustomizer({}: Props) {
           label="Background Color"
         />
       </div>
-      <div className="pt-8">
+      <div className="my-8">
         <ColorPalette />
       </div>
     </div>
