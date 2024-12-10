@@ -129,8 +129,8 @@ const ColorPaletteItem = ({
           >
             <div
               className={cn("mt-auto p-2 h-full flex flex-col justify-end", {
-                "text-black": index < 8,
-                "text-white": index >= 8,
+                "text-black dark:text-white": index < 8,
+                "text-white dark:text-black": index >= 8,
               })}
             >
               <div className="text-xs">Usage: {colorPaletteUsage[index]}</div>
