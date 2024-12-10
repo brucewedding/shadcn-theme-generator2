@@ -11,7 +11,7 @@ interface ThemeWrapperProps extends React.ComponentProps<"div"> {
 
 export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
   const { theme: appearance } = useTheme();
-  const theme = useThemeStyles();
+  const { theme } = useThemeStyles();
 
   useEffect(() => {
     const root = document.documentElement;

@@ -4,6 +4,7 @@ import React, { useMemo } from "react";
 import ColorInput from "./color-input";
 import AppearanceToggle from "./appearance-toggle";
 import { useTheme } from "next-themes";
+import ColorPalette from "./color-palette";
 
 type Props = {};
 
@@ -29,6 +30,9 @@ export default function ThemeCustomizer({}: Props) {
           identifier={`${appearance}/background`}
           label="Background Color"
         />
+      </div>
+      <div className="pt-8">
+        <ColorPalette />
       </div>
     </div>
   );

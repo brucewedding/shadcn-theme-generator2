@@ -5,7 +5,7 @@ export const hexToHsl = (hex: string) => {
   return new Color(hex).to("hsl").toString();
 };
 
-const hslToCssValue = (hsl: string) => {
+export const hslToCssValue = (hsl: string) => {
   return hsl.replace("hsl(", "").replace(")", "").replace("none", "0");
 };
 
