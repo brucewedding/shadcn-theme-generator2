@@ -8,7 +8,7 @@ type Props = {};
 export default function AppearanceToggle({}: Props) {
   const { theme, setTheme } = useTheme();
   return (
-    <Tabs defaultValue={theme} className="w-[250px]">
+    <Tabs defaultValue={theme} className="w-[200px]">
       <TabsList className="w-full">
         <TabsTrigger
           className="w-full"
