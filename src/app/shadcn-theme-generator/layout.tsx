@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./shadcn-theme-generator.css";
 import { ThemeWrapper } from "@/shadcn-theme-generator/components/theme-wrapper";
+import { AppearanceProvider } from "@/shadcn-theme-generator/components/appearance-provider";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -26,11 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <ThemeWrapper
+      <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-      </ThemeWrapper>
+        <AppearanceProvider>
+          <ThemeWrapper>{children}</ThemeWrapper>
+        </AppearanceProvider>
+      </body>
     </html>
   );
 }

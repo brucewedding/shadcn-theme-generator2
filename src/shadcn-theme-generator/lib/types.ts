@@ -2,6 +2,9 @@ export type Colors = {
   "light/primary": string;
   "light/gray": string;
   "light/background": string;
+  "dark/primary": string;
+  "dark/gray": string;
+  "dark/background": string;
 };
 
 export type ShadcnCssVariables = {

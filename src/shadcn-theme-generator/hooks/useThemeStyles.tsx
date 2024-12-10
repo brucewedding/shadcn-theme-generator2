@@ -1,27 +1,32 @@
 "use client";
 
-import { PRIMARY_COLOR, GRAY_COLOR, BACKGROUND_COLOR } from "@/shadcn-theme-generator/lib/constants";
 import { generateRadixColors } from "@/shadcn-theme-generator/lib/generate-radix-colors";
 import { createTheme } from "@/shadcn-theme-generator/lib/helpers";
 import { useMemo } from "react";
 import { useColors } from "./useColorsState";
+import { useTheme } from "next-themes";
 
 const useThemeStyles = () => {
+  const { theme: currentTheme } = useTheme();
   const colorsState = useColors();
+
+  const appearance = useMemo(() => {
+    return currentTheme === "light" ? "light" : "dark";
+  }, [currentTheme]);
 
   const theme = useMemo(() => {
     const colors = generateRadixColors({
-      appearance: "light",
-      accent: colorsState[PRIMARY_COLOR],
-      gray: colorsState[GRAY_COLOR],
-      background: colorsState[BACKGROUND_COLOR],
+      appearance,
+      accent: colorsState[`${appearance}/primary`],
+      gray: colorsState[`${appearance}/gray`],
+      background: colorsState[`${appearance}/background`],
     });
 
     return createTheme({
-      appearance: "light",
+      appearance,
       ...colors,
     });
-  }, [colorsState]);
+  }, [colorsState, appearance]);
 
   return theme;
 };

@@ -29,7 +29,7 @@ export default function ColorInput({ identifier, label }: Props) {
       // Set new timeout
       timeoutRef.current = setTimeout(() => {
         setColors((prevColors) => ({ ...prevColors, [identifier]: value }));
-      }, 100);
+      }, 1);
     },
     [identifier, setColors]
   );
