@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useId, useMemo, useCallback, useRef } from "react";
+import React, { useId, useMemo, useCallback, useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Colors } from "@/shadcn-theme-generator/lib/types";
 import { useColorsState } from "@/shadcn-theme-generator/hooks/useColorsState";
+import { validateHexColor } from "@/shadcn-theme-generator/lib/helpers";
 
 type Props = {
   identifier: keyof Colors;
@@ -18,6 +19,7 @@ export default function ColorInput({ identifier, label }: Props) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const color = useMemo(() => colors[identifier], [colors, identifier]);
+  const [colorValue, setColorValue] = useState(color.replace("#", ""));
 
   const debouncedSetColor = useCallback(
     (value: string) => {
@@ -29,6 +31,7 @@ export default function ColorInput({ identifier, label }: Props) {
       // Set new timeout
       timeoutRef.current = setTimeout(() => {
         setColors((prevColors) => ({ ...prevColors, [identifier]: value }));
+        setColorValue(value.replace("#", ""));
       }, 1);
     },
     [identifier, setColors]
@@ -37,6 +40,15 @@ export default function ColorInput({ identifier, label }: Props) {
   const handleColorChange = (value: string) => {
     const newColor = value.startsWith("#") ? value : `#${value}`;
     debouncedSetColor(newColor);
+  };
+
+  const handleColorHexChange = (value: string) => {
+    const newColor = value.startsWith("#") ? value : `#${value}`;
+    if (validateHexColor(newColor)) {
+      debouncedSetColor(newColor);
+    } else {
+      setColorValue(color.replace("#", ""));
+    }
   };
 
   // Cleanup timeout on unmount
@@ -55,8 +67,9 @@ export default function ColorInput({ identifier, label }: Props) {
         <Input
           type="text"
           id={`${id}-color-input`}
-          value={color.replace("#", "")}
-          onChange={(e) => handleColorChange(`#${e.target.value}`)}
+          value={colorValue}
+          onChange={(e) => setColorValue(e.target.value)}
+          onBlur={(e) => handleColorHexChange(e.target.value)}
           placeholder="Enter color"
           className="w-full ps-8"
         />

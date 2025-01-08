@@ -62,3 +62,7 @@ export const createTheme = (colors: any) => {
 
   return theme;
 };
+
+export const validateHexColor = (hex: string) => {
+  return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex);
+};
