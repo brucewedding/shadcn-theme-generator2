@@ -17,7 +17,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <div className="container mx-auto py-6 scroll-mt-20 space-y-6 px-4 md:px-8 pt-20">
+    <div className="container mx-auto py-6 scroll-mt-20 space-y-6 px-4 md:px-8 pt-20 pb-28">
       <ThemeCustomizer />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
