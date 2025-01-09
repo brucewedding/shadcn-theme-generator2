@@ -61,6 +61,7 @@ export default {
         geist: ["var(--font-geist-sans)"],
         "geist-mono": ["var(--font-geist-mono)"],
         calSans: ["var(--font-cal-sans)"],
+        inter: ["var(--font-inter)"],
       },
     },
   },

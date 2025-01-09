@@ -4,11 +4,12 @@ import "./shadcn-theme-generator.css";
 import { ThemeWrapper } from "@/shadcn-theme-generator/components/theme-wrapper";
 import { AppearanceProvider } from "@/shadcn-theme-generator/components/appearance-provider";
 import { Toolbar } from "@/shadcn-theme-generator/components/toolbar";
+import { Inter } from "next/font/google";
 
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const inter = Inter({
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
 });
 const geistMono = localFont({
   src: "../fonts/GeistMonoVF.woff",
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${calSans.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${calSans.variable} antialiased font-inter`}
       >
         <AppearanceProvider>
           <ThemeWrapper className="flex items-center justify-center">

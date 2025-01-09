@@ -14,3 +14,17 @@ export const DEFAULT_THEME = {
   ...LIGHT_DEFAULT_THEME,
   ...DARK_DEFAULT_THEME,
 };
+
+export enum Format {
+  CSS = "CSS",
+  HEX = "HEX",
+  RGB = "RGB",
+  HSL = "HSL",
+}
+
+export const FORMAT_OPTIONS = [
+  { label: "CSS", value: Format.CSS, example: "228 80% 59%" },
+  { label: "HEX", value: Format.HEX, example: "#3D63DD" },
+  { label: "RGB", value: Format.RGB, example: "rgb(61, 99, 221)" },
+  { label: "HSL", value: Format.HSL, example: "hsl(228, 80%, 59%)" },
+];

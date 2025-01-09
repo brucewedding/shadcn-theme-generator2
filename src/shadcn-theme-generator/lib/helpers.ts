@@ -1,28 +1,46 @@
 import Color from "colorjs.io";
 import { ShadcnCssVariables } from "./types";
+import { Format } from "./constants";
 
 export const hexToHsl = (hex: string, decimal: number = 1) => {
   const color = new Color(hex).to("hsl");
   const h = Number(color.coords[0] || 0).toFixed(decimal);
   const s = Number(color.coords[1] || 0).toFixed(decimal);
   const l = Number(color.coords[2] || 0).toFixed(decimal);
-  
+
   // Remove trailing zeros and decimal points if the number is whole
   const formatNumber = (num: string) => {
     const parsed = parseFloat(num);
     return isNaN(parsed) ? "0" : parsed.toString();
   };
-  
-  return `hsl(${formatNumber(h)} ${formatNumber(s)}% ${formatNumber(l)}%)`;
+
+  return `hsl(${formatNumber(h)}, ${formatNumber(s)}%, ${formatNumber(l)}%)`;
 };
 
+function hexToRgb(hex: string) {
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+    return r + r + g + g + b + b;
+  });
+
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
 export const hslToCssValue = (hsl: string) => {
-  return hsl.replace("hsl(", "").replace(")", "").replace("none", "0");
+  return hsl
+    .replace("hsl(", "")
+    .replace(")", "")
+    .replaceAll("none", "0")
+    .replaceAll(",", "");
 };
 
 export const createTheme = (colors: any) => {
-  console.log(colors, "colors");
-
   // --background: 0 0% 100%;
   //   --foreground: 240 10% 3.9%;
   //   --card: 0 0% 100%;
@@ -50,26 +68,31 @@ export const createTheme = (colors: any) => {
   //   --radius: 0.5rem;
 
   const theme: ShadcnCssVariables = {
-    background: hslToCssValue(hexToHsl(colors.background)),
-    foreground: hslToCssValue(hexToHsl(colors.grayScale[11])),
-    card: hslToCssValue(hexToHsl(colors.background)),
-    cardForeground: hslToCssValue(hexToHsl(colors.grayScale[11])),
-    popover: hslToCssValue(hexToHsl(colors.background)),
-    popoverForeground: hslToCssValue(hexToHsl(colors.grayScale[11])),
-    primary: hslToCssValue(hexToHsl(colors.accentScale[8])),
-    primaryForeground: hslToCssValue(hexToHsl(colors.accentScale[0])),
-    secondary: hslToCssValue(hexToHsl(colors.grayScale[4])),
-    secondaryForeground: hslToCssValue(hexToHsl(colors.grayScale[11])),
-    muted: hslToCssValue(hexToHsl(colors.grayScale[4])),
-    mutedForeground: hslToCssValue(hexToHsl(colors.grayScale[10])),
-    accent: hslToCssValue(hexToHsl(colors.accentScale[2])),
-    accentForeground: hslToCssValue(hexToHsl(colors.accentScale[11])),
-    input: hslToCssValue(hexToHsl(colors.grayScale[5])),
-    border: hslToCssValue(hexToHsl(colors.grayScale[5])),
-    ring: hslToCssValue(hexToHsl(colors.accentScale[7])),
+    background: colors.background,
+    foreground: colors.grayScale[11],
+    card: colors.background,
+    cardForeground: colors.grayScale[11],
+    popover: colors.background,
+    popoverForeground: colors.grayScale[11],
+    primary: colors.accentScale[8],
+    primaryForeground: colors.accentScale[0],
+    secondary: colors.grayScale[4],
+    secondaryForeground: colors.grayScale[11],
+    muted: colors.grayScale[4],
+    mutedForeground: colors.grayScale[10],
+    accent: colors.accentScale[2],
+    accentForeground: colors.accentScale[11],
+    input: colors.grayScale[5],
+    border: colors.grayScale[5],
+    ring: colors.accentScale[7],
+    destructive: "#ef4444",
+    destructiveForeground: "#fafafa",
+    chart1: "#f6a600",
+    chart2: "#a3d9b8",
+    chart3: "#2a4b5d",
+    chart4: "#b3c300",
+    chart5: "#d6b600",
   };
-
-  console.log(theme, "theme");
 
   return theme;
 };
@@ -92,32 +115,56 @@ export const getTextColorForBackground = (background: string) => {
   return brightness < 128 ? "white" : "black";
 };
 
-export const getThemeProperties = (theme: ShadcnCssVariables) => {
+export const formatColor = (color: string, format: Format = Format.CSS) => {
+  if (!validateHexColor(color)) {
+    console.log(color, "color invalid");
+    throw new Error("Invalid color");
+  }
+
+  switch (format) {
+    case Format.CSS:
+      return hslToCssValue(hexToHsl(color));
+    case Format.HSL:
+      return hexToHsl(color);
+    case Format.RGB:
+      return `rgb(${hexToRgb(color)?.r}, ${hexToRgb(color)?.g}, ${hexToRgb(color)?.b})`;
+    default:
+      return color;
+  }
+};
+
+export const getThemeProperties = (
+  theme: ShadcnCssVariables,
+  format: Format = Format.CSS
+) => {
   return {
-    "--background": theme.background ?? "0 0% 100%",
-    "--foreground": theme.foreground ?? "240 10% 3.9%",
-    "--card": theme.card ?? "0 0% 100%",
-    "--card-foreground": theme.cardForeground ?? "240 10% 3.9%",
-    "--popover": theme.popover ?? "0 0% 100%",
-    "--popover-foreground": theme.popoverForeground ?? "240 10% 3.9%",
-    "--primary": theme.primary ?? "240 5.9% 10%",
-    "--primary-foreground": theme.primaryForeground,
-    "--secondary": theme.secondary ?? "240 4.8% 95.9%",
-    "--secondary-foreground": theme.secondaryForeground ?? "240 5.9% 10%",
-    "--muted": theme.muted ?? "240 4.8% 95.9%",
-    "--muted-foreground": theme.mutedForeground ?? "240 3.8% 46.1%",
-    "--accent": theme.accent ?? "240 4.8% 95.9%",
-    "--accent-foreground": theme.accentForeground ?? "240 5.9% 10%",
-    "--destructive": theme.destructive ?? "0 84.2% 60.2%",
-    "--destructive-foreground": theme.destructiveForeground ?? "0 0% 98%",
-    "--border": theme.border ?? "240 5.9% 90%",
-    "--input": theme.input ?? "240 5.9% 90%",
-    "--ring": theme.ring ?? "240 10% 3.9%",
-    "--chart-1": theme.chart1 ?? "12 76% 61%",
-    "--chart-2": theme.chart2 ?? "173 58% 39%",
-    "--chart-3": theme.chart3 ?? "197 37% 24%",
-    "--chart-4": theme.chart4 ?? "43 74% 66%",
-    "--chart-5": theme.chart5 ?? "27 87% 67%",
-    "--radius": theme.radius ?? "0.5rem",
+    "--background": formatColor(theme.background!, format),
+    "--foreground": formatColor(theme.foreground!, format),
+    "--card": formatColor(theme.card!, format),
+    "--card-foreground": formatColor(theme.cardForeground!, format),
+    "--popover": formatColor(theme.popover!, format),
+    "--popover-foreground": formatColor(theme.popoverForeground!, format),
+    "--primary": formatColor(theme.primary!, format),
+    "--primary-foreground": formatColor(theme.primaryForeground!, format),
+    "--secondary": formatColor(theme.secondary!, format),
+    "--secondary-foreground": formatColor(theme.secondaryForeground!, format),
+    "--muted": formatColor(theme.muted!, format),
+    "--muted-foreground": formatColor(theme.mutedForeground!, format),
+    "--accent": formatColor(theme.accent!, format),
+    "--accent-foreground": formatColor(theme.accentForeground!, format),
+    "--destructive": formatColor(theme.destructive!, format),
+    "--destructive-foreground": formatColor(
+      theme.destructiveForeground!,
+      format
+    ),
+    "--border": formatColor(theme.border!, format),
+    "--input": formatColor(theme.input!, format),
+    "--ring": formatColor(theme.ring!, format),
+    "--chart-1": formatColor(theme.chart1!, format),
+    "--chart-2": formatColor(theme.chart2!, format),
+    "--chart-3": formatColor(theme.chart3!, format),
+    "--chart-4": formatColor(theme.chart4!, format),
+    "--chart-5": formatColor(theme.chart5!, format),
+    "--radius": "0.5rem",
   };
 };
