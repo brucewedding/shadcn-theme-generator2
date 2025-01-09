@@ -15,7 +15,7 @@ export default function ThemeCustomizer({}: Props) {
 
   return (
     <div className="flex flex-col items-center justify-center py-6">
-      <div className="py-8">
+      <div className="py-16">
         <div className="text-center font-calSans">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -47,7 +47,7 @@ export default function ThemeCustomizer({}: Props) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="my-8"
+        className="mb-12"
       >
         <ColorPalette />
       </motion.div>

@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import ColorInput from "./color-input";
 import AppearanceToggle from "./appearance-toggle";
 import CopyCode from "./copy-code";
+import ResetButton from "./reset-button";
 
 type Props = {};
 
@@ -20,7 +21,7 @@ const Toolbar = (props: Props) => {
     <div className="fixed bottom-0 left-0 right-0">
       <div className="flex justify-center items-center gap-2 relative">
         <motion.div
-          className="mb-4 mt-12 p-2 border rounded-xl backdrop-blur-sm flex justify-center items-center gap-2 bg-background/95 relative z-10"
+          className="mb-4 mt-8 p-2 border rounded-xl backdrop-blur-sm flex justify-center items-center gap-2 bg-background/95 relative z-10"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 24, delay: 1 }}
@@ -34,11 +35,14 @@ const Toolbar = (props: Props) => {
             />
           </div>
           <div className="w-px h-8 bg-border" />
-          <AppearanceToggle />
+          <div className="flex gap-2">
+            <ResetButton className="size-10"/>
+            <AppearanceToggle />
+          </div>
           <div className="w-px h-8 bg-border" />
           <CopyCode />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-40% to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background to-50% to-background" />
       </div>
     </div>
   );
