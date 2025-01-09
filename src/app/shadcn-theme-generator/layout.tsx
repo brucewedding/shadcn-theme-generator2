@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./shadcn-theme-generator.css";
 import { ThemeWrapper } from "@/shadcn-theme-generator/components/theme-wrapper";
 import { AppearanceProvider } from "@/shadcn-theme-generator/components/appearance-provider";
+import { Toolbar } from "@/shadcn-theme-generator/components/toolbar";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -36,7 +37,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${calSans.variable} antialiased`}
       >
         <AppearanceProvider>
-          <ThemeWrapper>{children}</ThemeWrapper>
+          <ThemeWrapper className="flex items-center justify-center">
+            {children}
+            <Toolbar />
+          </ThemeWrapper>
         </AppearanceProvider>
       </body>
     </html>

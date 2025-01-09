@@ -1,11 +1,8 @@
 "use client";
 
 import React, { useMemo } from "react";
-import ColorInput from "./color-input";
-import AppearanceToggle from "./appearance-toggle";
-import { useTheme } from "next-themes";
 import ColorPalette from "./color-palette";
-
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 type Props = {};
 
@@ -46,35 +43,10 @@ export default function ThemeCustomizer({}: Props) {
           Generate your theme and personalize it to your liking.
         </motion.p>
       </div>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex items-center justify-center my-6"
-      >
-        <AppearanceToggle />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-        className="flex gap-4 my-6"
-      >
-        <ColorInput
-          identifier={`${appearance}/primary`}
-          label="Primary Color"
-        />
-        <ColorInput identifier={`${appearance}/gray`} label="Gray Color" />
-        <ColorInput
-          identifier={`${appearance}/background`}
-          label="Background Color"
-        />
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         className="my-8"
       >
         <ColorPalette />
