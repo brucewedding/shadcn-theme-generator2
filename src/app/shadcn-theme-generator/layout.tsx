@@ -23,8 +23,13 @@ const calSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Shadcn UI Theme Generator",
-  description: "Generate and customize your Shadcn UI theme",
+  title: "Shadcn Theme Generator",
+  description: "Generate custom themes for shadcn/ui",
+  icons: {
+    icon: "/icon.ico",
+    shortcut: "/icon.ico",
+    apple: "/icon.ico"
+  },
 };
 
 export default function RootLayout({
