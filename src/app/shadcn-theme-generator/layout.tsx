@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   title: "Shadcn Theme Generator",
   description: "Generate custom themes for shadcn/ui",
   icons: {
-    icon: "/icon.ico",
-    shortcut: "/icon.ico",
-    apple: "/icon.ico"
+    icon: "./icon.ico",
+    shortcut: "./icon.ico",
+    apple: "./icon.ico",
   },
 };
 
