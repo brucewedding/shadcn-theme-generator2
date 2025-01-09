@@ -2,7 +2,7 @@
 
 import React, { useMemo, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { Colors } from "@/shadcn-theme-generator/lib/types";
+import { ColorPalette, Colors } from "@/shadcn-theme-generator/lib/types";
 import { useColorsState } from "@/shadcn-theme-generator/hooks/useColorsState";
 import { getTextColorForBackground } from "@/shadcn-theme-generator/lib/helpers";
 import {
@@ -10,23 +10,27 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
 type Props = {
   identifier: keyof Colors;
   label: string;
+  palette?: ColorPalette[];
 };
 
-export default function ColorInput({ identifier, label }: Props) {
+export default function ColorInput({ identifier, label, palette }: Props) {
   const [colors, setColors] = useColorsState();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const color = useMemo(() => colors[identifier], [colors, identifier]);
-  const textColor = useMemo(
-    () => getTextColorForBackground(color),
-    [color]
-  );
+  const textColor = useMemo(() => getTextColorForBackground(color), [color]);
 
   const debouncedSetColor = useCallback(
     (value: string) => {
@@ -81,6 +85,28 @@ export default function ColorInput({ identifier, label }: Props) {
               color={color}
               onChange={handleColorChange}
             />
+            {palette?.length && (
+              <div className="gap-1 grid grid-cols-8">
+                {palette.map((item) => (
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <div
+                          className="w-full aspect-square rounded-md"
+                          style={{
+                            backgroundColor: item.example ?? item.value,
+                          }}
+                          onClick={() => handleColorChange(item.value)}
+                        />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{item.label}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
+            )}
           </PopoverContent>
         </Popover>
       </div>

@@ -34,3 +34,9 @@ export type ShadcnCssVariables = {
   chart5?: string;
   radius?: string;
 };
+
+export type ColorPalette = {
+  label: string;
+  value: string;
+  example?: string;
+};

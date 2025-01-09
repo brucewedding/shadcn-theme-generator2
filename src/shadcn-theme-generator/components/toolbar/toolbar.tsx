@@ -7,6 +7,10 @@ import ColorInput from "./color-input";
 import AppearanceToggle from "./appearance-toggle";
 import CopyCode from "./copy-code";
 import ResetButton from "./reset-button";
+import {
+  GRAY_PALETTES,
+  PRIMARY_PALETTES,
+} from "@/shadcn-theme-generator/lib/constants";
 
 type Props = {};
 
@@ -27,8 +31,16 @@ const Toolbar = (props: Props) => {
           transition={{ type: "spring", stiffness: 300, damping: 24, delay: 1 }}
         >
           <div className="flex gap-2">
-            <ColorInput identifier={`${appearance}/primary`} label="Primary" />
-            <ColorInput identifier={`${appearance}/gray`} label="Gray" />
+            <ColorInput
+              identifier={`${appearance}/primary`}
+              label="Primary"
+              palette={PRIMARY_PALETTES}
+            />
+            <ColorInput
+              identifier={`${appearance}/gray`}
+              label="Gray"
+              palette={GRAY_PALETTES}
+            />
             <ColorInput
               identifier={`${appearance}/background`}
               label="Background"
@@ -36,7 +48,7 @@ const Toolbar = (props: Props) => {
           </div>
           <div className="w-px h-8 bg-border" />
           <div className="flex gap-2">
-            <ResetButton className="size-10"/>
+            <ResetButton className="size-10" />
             <AppearanceToggle />
           </div>
           <div className="w-px h-8 bg-border" />
