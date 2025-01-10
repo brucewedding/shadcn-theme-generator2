@@ -6,6 +6,7 @@ import { Toolbar } from "@/components/toolbar";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,8 +25,17 @@ const calSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Shadcn Theme Generator",
-  description: "Generate custom themes for shadcn/ui",
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
