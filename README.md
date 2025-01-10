@@ -129,10 +129,6 @@ Found a bug or have a feature request? Please file an issue:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
 
-## Contact
-
-Project Link: [https://github.com/jauharmuhammed/shadcn-theme-generator](https://github.com/jauharmuhammed/shadcn-theme-generator)
-
 ---
 
 Made with ❤️ by [Jauhar Muhammed](https://jauharmuhammed.com)
