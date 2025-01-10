@@ -3,13 +3,13 @@
 import ThemeCustomizer from "@/components/theme-customizer";
 import { useEffect, useState } from "react";
 
-
 import { motion } from "framer-motion";
 import useThemeStyles from "@/hooks/useThemeStyles";
 import CardsDemo from "@/components/example/cards";
+import { Footer } from "@/components/footer";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  useThemeStyles(); 
+  useThemeStyles();
 
   useEffect(() => {
     setMounted(true);
@@ -27,6 +27,7 @@ export default function Home() {
       >
         <CardsDemo />
       </motion.div>
+      <Footer />
     </div>
   );
 }

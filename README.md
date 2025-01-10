@@ -129,6 +129,11 @@ Found a bug or have a feature request? Please file an issue:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
 
+## Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com/) - Re-usable components built using Radix UI and Tailwind CSS.
+- [Radix UI](https://www.radix-ui.com/colors/custom) - For the color system, palette generator and accessible components.
+
 ---
 
 Made with ❤️ by [Jauhar Muhammed](https://jauharmuhammed.com)
