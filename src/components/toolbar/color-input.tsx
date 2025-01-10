@@ -2,9 +2,9 @@
 
 import React, { useMemo, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { ColorPalette, Colors } from "@/shadcn-theme-generator/lib/types";
-import { useColorsState } from "@/shadcn-theme-generator/hooks/useColorsState";
-import { getTextColorForBackground } from "@/shadcn-theme-generator/lib/helpers";
+import { ColorPalette, Colors } from "@/lib/types";
+import { useColorsState } from "@/hooks/useColorsState";
+import { getTextColorForBackground } from "@/lib/helpers";
 import {
   Popover,
   PopoverContent,
@@ -41,7 +41,10 @@ export default function ColorInput({ identifier, label, palette }: Props) {
 
       // Set new timeout
       timeoutRef.current = setTimeout(() => {
-        setColors((prevColors) => ({ ...prevColors, [identifier]: value }));
+        setColors((prevColors: Colors) => ({
+          ...prevColors,
+          [identifier]: value,
+        }));
       }, 1);
     },
     [identifier, setColors]

@@ -1,4 +1,4 @@
-import { colorsAtom } from "@/shadcn-theme-generator/atoms/colors";
+import { colorsAtom } from "@/atoms/colors";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { useCallback } from "react";
 

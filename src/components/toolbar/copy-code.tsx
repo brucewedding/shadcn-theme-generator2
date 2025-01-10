@@ -18,9 +18,9 @@ import {
 } from "@/components/ui/select";
 
 import { Button } from "@/components/ui/button";
-import useThemeStyles from "@/shadcn-theme-generator/hooks/useThemeStyles";
+import useThemeStyles from "@/hooks/useThemeStyles";
 import { CheckIcon, CopyIcon } from "lucide-react";
-import { Format, FORMAT_OPTIONS } from "@/shadcn-theme-generator/lib/constants";
+import { Format, FORMAT_OPTIONS } from "@/lib/constants";
 
 type Props = {};
 

@@ -1,11 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { RepeatIcon } from "lucide-react";
-import { useSetColors } from "@/shadcn-theme-generator/hooks/useColorsState";
-import {
-  DARK_DEFAULT_THEME,
-  LIGHT_DEFAULT_THEME,
-} from "@/shadcn-theme-generator/lib/constants";
+import { useSetColors } from "@/hooks/useColorsState";
+import { DARK_DEFAULT_THEME, LIGHT_DEFAULT_THEME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
@@ -15,6 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Colors } from "@/lib/types";
 
 type Props = {
   className?: string;
@@ -25,7 +23,7 @@ const ResetButton = ({ className }: Props) => {
   const { theme } = useTheme();
 
   const handleReset = () => {
-    setColors((prevColors) => ({
+    setColors((prevColors: Colors) => ({
       ...prevColors,
       ...(theme === "dark" ? DARK_DEFAULT_THEME : LIGHT_DEFAULT_THEME),
     }));

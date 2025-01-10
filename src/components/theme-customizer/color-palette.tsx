@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
-import useThemeStyles from "@/shadcn-theme-generator/hooks/useThemeStyles";
-import { hexToHsl, hslToCssValue } from "@/shadcn-theme-generator/lib/helpers";
+import useThemeStyles from "@/hooks/useThemeStyles";
+import { hexToHsl, hslToCssValue } from "@/lib/helpers";
 import {
   HoverCard,
   HoverCardContent,

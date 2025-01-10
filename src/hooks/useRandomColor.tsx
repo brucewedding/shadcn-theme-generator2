@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 import { RANDOM_PRIMARY_COLORS, GRAY_PALETTES } from "../lib/constants";
 import { useTheme } from "next-themes";
 import { useSetColors } from "./useColorsState";
+import { Colors } from "../lib/types";
 
 export const useRandomColor = () => {
   const setColors = useSetColors();
@@ -31,11 +32,11 @@ export const useRandomColor = () => {
         event.preventDefault();
         const appearance = theme === "light" ? "light" : "dark";
 
-        setColors((prev) => ({
+        setColors((prev: Colors) => ({
           ...prev,
           [`${appearance}/primary`]: getRandomColor(RANDOM_PRIMARY_COLORS, prevPrimaryIndex),
           [`${appearance}/gray`]: getRandomColor(GRAY_PALETTES, prevGrayIndex).value,
-        }));
+        } as Colors));
       }
     },
     [getRandomColor, setColors, theme]

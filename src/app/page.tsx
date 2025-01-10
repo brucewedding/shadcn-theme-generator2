@@ -1,14 +1,15 @@
 "use client";
 
-import CardsDemo from "@/shadcn-theme-generator/components/example/cards";
-import ThemeCustomizer from "@/shadcn-theme-generator/components/theme-customizer";
-import useThemeStyles from "@/shadcn-theme-generator/hooks/useThemeStyles";
+import ThemeCustomizer from "@/components/theme-customizer";
 import { useEffect, useState } from "react";
 
+
 import { motion } from "framer-motion";
+import useThemeStyles from "@/hooks/useThemeStyles";
+import CardsDemo from "@/components/example/cards";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  useThemeStyles();
+  useThemeStyles(); 
 
   useEffect(() => {
     setMounted(true);

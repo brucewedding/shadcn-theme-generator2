@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./shadcn-theme-generator.css";
-import { ThemeWrapper } from "@/shadcn-theme-generator/components/theme-wrapper";
-import { AppearanceProvider } from "@/shadcn-theme-generator/components/appearance-provider";
-import { Toolbar } from "@/shadcn-theme-generator/components/toolbar";
+import { ThemeWrapper } from "@/components/theme-wrapper";
+import { AppearanceProvider } from "@/components/appearance-provider";
+import { Toolbar } from "@/components/toolbar";
 import { Inter } from "next/font/google";
+
+import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,12 +13,12 @@ const inter = Inter({
   subsets: ["latin"],
 });
 const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
 const calSans = localFont({
-  src: "../fonts/CalSans-SemiBold.woff",
+  src: "./fonts/CalSans-SemiBold.woff",
   variable: "--font-cal-sans",
   weight: "100 900",
 });
@@ -25,11 +26,6 @@ const calSans = localFont({
 export const metadata: Metadata = {
   title: "Shadcn Theme Generator",
   description: "Generate custom themes for shadcn/ui",
-  icons: {
-    icon: "/shadcn-theme-generator/icon.ico",
-    shortcut: "/shadcn-theme-generator/icon.ico",
-    apple: "/shadcn-theme-generator/icon.ico",
-  },
 };
 
 export default function RootLayout({

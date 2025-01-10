@@ -7,11 +7,8 @@ import ColorInput from "./color-input";
 import AppearanceToggle from "./appearance-toggle";
 import CopyCode from "./copy-code";
 import ResetButton from "./reset-button";
-import {
-  GRAY_PALETTES,
-  PRIMARY_PALETTES,
-} from "@/shadcn-theme-generator/lib/constants";
-import { useRandomColor } from "@/shadcn-theme-generator/hooks/useRandomColor";
+import { GRAY_PALETTES, PRIMARY_PALETTES } from "@/lib/constants";
+import { useRandomColor } from "@/hooks/useRandomColor";
 
 type Props = {};
 

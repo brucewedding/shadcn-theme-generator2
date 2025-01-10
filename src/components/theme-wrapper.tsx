@@ -1,9 +1,9 @@
 "use client";
 
-import useThemeStyles from "@/shadcn-theme-generator/hooks/useThemeStyles";
 import { cn } from "@/lib/utils";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import useThemeStyles from "@/hooks/useThemeStyles";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {
   defaultTheme?: string;

@@ -1,16 +1,16 @@
 "use client";
 
-import { generateRadixColors } from "@/shadcn-theme-generator/lib/generate-radix-colors";
+import { generateRadixColors } from "@/lib/generate-radix-colors";
 import {
   createTheme,
   formatColor,
   getThemeProperties,
   validateHexColor,
-} from "@/shadcn-theme-generator/lib/helpers";
+} from "@/lib/helpers";
 import { useMemo, useState } from "react";
 import { useColors } from "./useColorsState";
 import { useTheme } from "next-themes";
-import { Format } from "@/shadcn-theme-generator/lib/constants";
+import { Format } from "@/lib/constants";
 
 const useThemeStyles = (format: Format = Format.CSS) => {
   const [radixColors, setRadixColors] = useState<any>();
@@ -43,7 +43,12 @@ const useThemeStyles = (format: Format = Format.CSS) => {
 
   const themeCode = useMemo(() => {
     return Object.entries(getThemeProperties(theme, Format.HEX))
-      .map(([key, value]) => `${key}: ${validateHexColor(value) ? formatColor(value, format) : value};`)
+      .map(
+        ([key, value]) =>
+          `${key}: ${
+            validateHexColor(value) ? formatColor(value, format) : value
+          };`
+      )
       .join("\n");
   }, [theme, format]);
 

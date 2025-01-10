@@ -4,9 +4,9 @@ import React, { useId, useMemo, useCallback, useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { Colors } from "@/shadcn-theme-generator/lib/types";
-import { useColorsState } from "@/shadcn-theme-generator/hooks/useColorsState";
-import { validateHexColor } from "@/shadcn-theme-generator/lib/helpers";
+import { Colors } from "@/lib/types";
+import { useColorsState } from "@/hooks/useColorsState";
+import { validateHexColor } from "@/lib/helpers";
 
 type Props = {
   identifier: keyof Colors;
@@ -30,7 +30,13 @@ export default function ColorInput({ identifier, label }: Props) {
 
       // Set new timeout
       timeoutRef.current = setTimeout(() => {
-        setColors((prevColors) => ({ ...prevColors, [identifier]: value }));
+        setColors(
+          (prevColors: Colors) =>
+            ({
+              ...prevColors,
+              [identifier]: value,
+            } as Colors)
+        );
         setColorValue(value.replace("#", ""));
       }, 1);
     },
