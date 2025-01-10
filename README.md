@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/jauharmuhammed/shadcn-theme-generator">
-    <img src="/logo.png" alt="Logo" width="80" height="80" style="border-radius: 50%;">
+    <img src="/public/logo.png" alt="Logo" width="80" height="80" style="border-radius: 50%;">
   </a>
 
   <h1 align="center">Shadcn Theme Customizer</h1>
@@ -48,7 +48,7 @@
 ## About The Project
 
 <p align="center">
-  <img src="/screenshot.png" alt="Project Screenshot" width="100%">
+  <img src="/public/screenshot.png" alt="Project Screenshot" width="70%">
 </p>
 
 Shadcn Theme Generator is a tool that helps you generate and customize themes for shadcn/ui components using [Radix UI Custom Colors](https://www.radix-ui.com/colors/custom)
@@ -72,15 +72,6 @@ Shadcn Theme Generator is a tool that helps you generate and customize themes fo
   - blocks
   - tables
   - inputs and buttons
-
-### Built With
-
-- [Next.js 15](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Shadcn/UI](https://ui.shadcn.com/)
-- [Radix UI](https://www.radix-ui.com/)
-- [TypeScript](https://www.typescriptlang.org/)
 
 ## Getting Started
 
@@ -114,6 +105,7 @@ yarn dev
 
 - [Next.js 14](https://nextjs.org/)
 - [React](https://reactjs.org/)
+- [Radix UI](https://www.radix-ui.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Shadcn/UI](https://ui.shadcn.com/)
 - [TypeScript](https://www.typescriptlang.org/)
