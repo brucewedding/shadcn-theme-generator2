@@ -1,21 +1,14 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React from "react";
 import ColorPalette from "./color-palette";
-import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 type Props = {};
 
 export default function ThemeCustomizer({}: Props) {
-  const { theme } = useTheme();
-
-  const appearance = useMemo(() => {
-    return theme === "light" ? "light" : "dark";
-  }, [theme]);
-
   return (
-    <div className="flex flex-col items-center justify-center py-6">
-      <div className="py-16">
+    <div className="flex flex-col items-center justify-center py-6 relative z-10">
+      <div className="mt-12 mb-20">
         <div className="text-center font-calSans">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
