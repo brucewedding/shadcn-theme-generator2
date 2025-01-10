@@ -1,3 +1,5 @@
+// see https://github.com/radix-ui/website/blob/main/components/generateRadixColors.tsx
+// Copyright (c) 2024 WorkOS, MIT License
 import * as RadixColors from "@radix-ui/colors";
 import Color from "colorjs.io";
 import BezierEasing from "bezier-easing";

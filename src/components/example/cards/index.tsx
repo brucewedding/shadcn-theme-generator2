@@ -1,3 +1,5 @@
+// see https://github.com/shadcn-ui/ui/blob/main/apps/www/components/cards/index.tsx
+// Copyright (c) 2023 shadcn, MIT License
 import { CardsActivityGoal } from "@/components/example/cards/activity-goal";
 import { CardsCalendar } from "@/components/example/cards/calendar";
 import { CardsChat } from "@/components/example/cards/chat";
