@@ -48,7 +48,7 @@
 ## About The Project
 
 <p align="center">
-  <img src="/public/screenshot.png" alt="Project Screenshot" width="70%">
+  <img src="/public/screenshot.jpeg" alt="Project Screenshot" width="70%">
 </p>
 
 Shadcn Theme Generator is a tool that helps you generate and customize themes for shadcn/ui components using [Radix UI Custom Colors](https://www.radix-ui.com/colors/custom)
