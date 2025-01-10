@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { Navbar } from "@/components/navbar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,7 +50,8 @@ export default function RootLayout({
         className={`${inter.variable} ${geistMono.variable} ${calSans.variable} antialiased font-inter`}
       >
         <AppearanceProvider>
-          <ThemeWrapper className="flex items-center justify-center">
+          <ThemeWrapper className="flex flex-col items-center justify-center">
+            <Navbar />
             {children}
             <Toolbar />
           </ThemeWrapper>

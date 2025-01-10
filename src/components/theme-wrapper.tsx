@@ -16,7 +16,6 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
   useEffect(() => {
     const root = document.documentElement;
 
-
     Object.entries(properties).forEach(([key, value]) => {
       root.style.setProperty(key, value!);
     });
@@ -29,6 +28,9 @@ export function ThemeWrapper({ children, className }: ThemeWrapperProps) {
   }, [properties, appearance]);
 
   return (
-    <main className={cn("w-full bg-background", className)}>{children}</main>
+    <main className={cn("w-full bg-background relative", className)}>
+      <div className="absolute inset-x-0 z-0 top-0 h-[300px] bg-gradient-to-b from-primary/10 to-transparent" />
+      {children}
+    </main>
   );
 }
