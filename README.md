@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <a href="https://github.com/jauharmuhammed/shadcn-theme-generator">
+    <img src="/logo.png" alt="Logo" width="80" height="80" style="border-radius: 50%;">
+  </a>
+
+  <h1 align="center">Shadcn Theme Customizer</h1>
+
+  <p align="center">
+    A tool for generating and customizing themes for shadcn/ui components using 
+    <a href="https://www.radix-ui.com/colors/custom">Radix UI palette generator</a>
+    <br />
+    <a href="https://github.com/jauharmuhammed/shadcn-theme-generator"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://shadcn-theme-customizer.vercel.app">View Demo</a>
+    ·
+    <a href="https://github.com/jauharmuhammed/shadcn-theme-generator/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/jauharmuhammed/shadcn-theme-generator/issues">Request Feature</a>
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#current-features">Current Features</a></li>
+        <li><a href="#planned-features">Planned Features</a></li>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+## About The Project
+
+<p align="center">
+  <img src="/screenshot.png" alt="Project Screenshot" width="100%">
+</p>
+
+Shadcn Theme Generator is a tool that helps you generate and customize themes for shadcn/ui components using [Radix UI Custom Colors](https://www.radix-ui.com/colors/custom)
+
+### Current Features
+
+- Interactive theme customization
+- Real-time component preview
+- Dark/Light mode toggle
+- Color palette generation
+- Multiple component previews
+- Copy code to clipboard in different formats
+- Random theme generator
+
+### Planned Features
+
+- Advanced customization
+- Chart variables
+- More component previews
+  - Chart component
+  - blocks
+  - tables
+  - inputs and buttons
+
+### Built With
+
+- [Next.js 15](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn/UI](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/jauharmuhammed/shadcn-theme-generator.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js 14](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn/UI](https://ui.shadcn.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Issues
 
-## Deploy on Vercel
+Found a bug or have a feature request? Please file an issue:
+[Create Issue](https://github.com/jauharmuhammed/shadcn-theme-generator/issues)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
+
+## Contact
+
+Project Link: [https://github.com/jauharmuhammed/shadcn-theme-generator](https://github.com/jauharmuhammed/shadcn-theme-generator)
+
+---
+
+Made with ❤️ by [Jauhar Muhammed](https://jauharmuhammed.com)
