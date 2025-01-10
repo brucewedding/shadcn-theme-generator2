@@ -11,11 +11,13 @@ import {
   GRAY_PALETTES,
   PRIMARY_PALETTES,
 } from "@/shadcn-theme-generator/lib/constants";
+import { useRandomColor } from "@/shadcn-theme-generator/hooks/useRandomColor";
 
 type Props = {};
 
 const Toolbar = (props: Props) => {
   const { theme } = useTheme();
+  useRandomColor();
 
   const appearance = useMemo(() => {
     return theme === "light" ? "light" : "dark";

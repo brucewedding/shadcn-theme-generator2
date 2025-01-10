@@ -58,5 +58,38 @@ export const PRIMARY_PALETTES: ColorPalette[] = [
   { label: "purple", value: "#a855f7" },
   { label: "fuchsia", value: "#d946ef" },
   { label: "pink", value: "#ec4899" },
-  { label: "rose", value: "#f43f5e" }
- ];
+  { label: "rose", value: "#f43f5e" },
+];
+
+export const RANDOM_PRIMARY_COLORS = [
+  "#f97316", // orange
+  "#f59e0b", // amber
+  "#eab308", // yellow
+  "#84cc16", // lime
+  "#22c55e", // green
+  "#10b981", // emerald
+  "#14b8a6", // teal
+  "#06b6d4", // cyan
+  "#0ea5e9", // sky
+  "#3b82f6", // blue
+  "#6366f1", // indigo
+  "#8b5cf6", // violet
+  "#a855f7", // purple
+  "#d946ef", // fuchsia
+  "#ec4899", // pink
+  "#f43f5e", // rose
+  "#ff6b6b", // coral
+  "#4ecdc4", // turquoise
+  "#45b7d1", // ocean
+  "#96ceb4", // mint
+  "#ff9f1c", // marigold
+  "#7209b7", // royal purple
+  "#2ec4b6", // caribbean
+  "#ff3366", // raspberry
+  "#38b000", // kelly green
+  "#9381ff", // lavender
+  "#fb5607", // burnt orange
+  "#ff006e", // hot pink
+  "#3a86ff", // dodger blue
+  "#8338ec", // electric purple
+];
